@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yan Guannan — student, designer and builder at BIUH. Interfaces, weather and a small reaction game.">
+  <title>Yan Guannan — Interfaces with a pulse</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Space+Grotesk:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="css/topography.css">
+  <link rel="stylesheet" href="css/site.css?v=9">
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#home" aria-label="Yan Guannan — home">
+      <span class="brand-mark">YG</span>
+      <span class="brand-copy">
+        <strong>Yan Guannan</strong>
+        <small>严冠男</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#atlas">Weather</a>
+      <a href="#tools">Tools</a>
+      <a href="#play">Play</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="bar-right">
+      <span class="bar-weather" aria-label="Live weather">
+        <i></i>
+        <span id="barWeatherIcon">◌</span>
+        <strong id="barWeatherTemp">--°</strong>
+        <span id="barWeatherPlace">Hainan</span>
+      </span>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="topography-layer" id="topography-root" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-noise" aria-hidden="true"></div>
+
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span>BIUH · Hainan · live conditions</p>
+          <h1 class="hero-statement">If emotions<br>had weather,<br><em>I'd be stuck<br>in the overcast.</em></h1>
+          <p class="cn-name">Yan Guannan · 严冠男</p>
+          <p class="tagline">Interfaces with a pulse.<br><em>Weather with a memory.</em></p>
+          <p class="lede">
+            I'm Yan Guannan, a student at Hainan Bielefeld University of Applied Sciences (BIUH).
+            I build calm, tactile interfaces — systems that read the room, the light and the weather,
+            and turn it into something you can feel.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#atlas">Open the forecast</a>
+            <a class="btn btn-line" href="#play">Play Signal Grid</a>
+          </div>
+
+          <div class="hero-meta">
+            <span>Live from Hainan</span>
+            <span>X20250013</span>
+            <span>Open to ideas</span>
+          </div>
+        </div>
+
+        <aside class="id-card" id="idCard" aria-label="Live weather and student card for Yan Guannan">
+          <div class="id-card-inner">
+            <div class="id-card-top">
+              <span>BIUH / LIVE WEATHER</span>
+              <span>X20250013</span>
+            </div>
+
+            <div class="id-weather">
+              <span class="id-weather-icon" id="heroWeatherIcon">◌</span>
+              <div class="id-weather-reading">
+                <strong id="heroWeatherTemp">--°</strong>
+                <span id="heroWeatherCondition">Reading the sky…</span>
+              </div>
+            </div>
+
+            <p class="id-place" id="heroWeatherPlace">Hainan, China</p>
+
+            <div class="id-person">
+              <h2>严冠男</h2>
+              <p class="id-roman">YAN GUANNAN</p>
+              <p class="id-role">Design &amp; interaction</p>
+            </div>
+
+            <div class="id-weather-stats">
+              <div><span>Humidity</span><strong id="heroHumidity">--%</strong></div>
+              <div><span>Wind</span><strong id="heroWind">-- km/h</strong></div>
+              <div><span>Local</span><strong id="heroTime">--:--</strong></div>
+            </div>
+
+            <div class="hero-forecast" id="heroForecast" aria-label="Three day forecast"></div>
+
+            <div class="id-card-foot">
+              <span class="id-status"><i></i>Open to collaborate</span>
+              <span class="id-serial">YG · 013</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+        <span>Scroll to the forecast</span>
+        <i></i>
+      </a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="shell about-grid">
+        <div class="section-label reveal">
+          <p class="eyebrow"><span class="dot"></span>01 — About</p>
+          <h2>A climate for<br><em>ideas.</em></h2>
+
+          <div class="about-side">
+            <span class="side-rule"></span>
+            <p>Currently: building small systems that reward attention.</p>
+            <span class="coords">20.02° N / 110.34° E · Hainan</span>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="lead">
+            I'm interested in the moment an interface stops feeling like a tool and starts feeling
+            like a place. That usually comes from restraint: fewer elements, better timing, a surface
+            that responds before it explains.
+          </p>
+          <p>
+            At BIUH I study how people read screens — what they notice first, what they trust, what
+            makes them want to touch something. Outside class I make small web experiments, collect
+            typefaces and build games that are easy to start and hard to put down.
+          </p>
+
+          <div class="tag-row">
+            <span>Interaction design</span>
+            <span>Creative front-end</span>
+            <span>Motion</span>
+            <span>WebGL</span>
+            <span>Sound</span>
+          </div>
+
+          <div class="about-stats">
+            <div><strong>BIUH</strong><span>Hainan</span></div>
+            <div><strong>2025</strong><span>Student ID X20250013</span></div>
+            <div><strong>01</strong><span>Small game, many tries</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow"><span class="dot"></span>02 — Selected work</p>
+            <h2>Forecasts for <em>the web.</em></h2>
+          </div>
+          <p class="section-note">A few studies in surface, signal and motion.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-art art-topo" aria-hidden="true">
+              <span class="art-orbit"></span>
+              <span class="art-orbit two"></span>
+              <span class="art-dot"></span>
+            </div>
+            <div class="work-body">
+              <div class="work-kicker"><span>01</span><span>Web / WebGL</span></div>
+              <h3>Topographic identity</h3>
+              <p>A personal landscape that moves under the cursor. Contour lines, survey marks and a quiet pulse make the page feel like a place to wander.</p>
+              <div class="work-tags"><span>Canvas</span><span>WebGL</span><span>Interaction</span></div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-delay="1">
+            <div class="work-art art-motion" aria-hidden="true">
+              <span class="art-block b1"></span>
+              <span class="art-block b2"></span>
+              <span class="art-block b3"></span>
+              <span class="art-line"></span>
+            </div>
+            <div class="work-body">
+              <div class="work-kicker"><span>02</span><span>Motion study</span></div>
+              <h3>Quiet motion</h3>
+              <p>An exercise in easing, timing and tension. Transitions that arrive a beat later than expected, and leave a trace when they go.</p>
+              <div class="work-tags"><span>CSS</span><span>Timing</span><span>Type</span></div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-delay="2">
+            <div class="work-art art-signal" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span class="lit"></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="work-body">
+              <div class="work-kicker"><span>03</span><span>Game</span></div>
+              <h3>Signal Grid</h3>
+              <p>A reaction game about attention. One cell lights at a time; find it, tap it, keep the streak alive before the signal fades.</p>
+              <div class="work-tags"><span>Game</span><span>Sound</span><span>Local best</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section atlas" id="atlas">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow"><span class="dot"></span>03 — Weather</p>
+            <h2>The weather, <em>up close.</em></h2>
+          </div>
+          <p class="section-note">Live conditions · five-day outlook<br>Spin the earth. Pick a point.</p>
+        </div>
+
+        <div class="atlas-grid">
+          <div class="globe-panel reveal">
+            <div class="globe-top">
+              <span>Live globe / drag to rotate</span>
+              <span class="globe-live"><i></i>Open weather</span>
+            </div>
+
+            <form class="atlas-search" id="atlasSearch" role="search">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <input id="atlasQuery" type="search" placeholder="Search a city / 搜索城市…" autocomplete="off" aria-label="Search for a city in English or Chinese">
+              <button type="submit">Search</button>
+              <div class="search-results" id="searchResults" role="listbox" hidden></div>
+            </form>
+            <p class="search-hint">English or 中文 · try 北京 / Beijing / 东京 / Tokyo</p>
+
+            <div class="globe-stage">
+              <canvas id="globeCanvas" width="640" height="640" aria-label="Interactive globe. Drag to rotate and click a location to see its weather."></canvas>
+              <div class="globe-hint">Drag to rotate · click to travel</div>
+            </div>
+
+            <div class="globe-cities" aria-label="Quick locations">
+              <button type="button" data-lat="19.5" data-lon="110" data-place="Hainan, China">Hainan</button>
+              <button type="button" data-lat="39.9" data-lon="116.4" data-place="Beijing, China">Beijing</button>
+              <button type="button" data-lat="35.68" data-lon="139.69" data-place="Tokyo, Japan">Tokyo</button>
+              <button type="button" data-lat="51.51" data-lon="-0.13" data-place="London, UK">London</button>
+              <button type="button" data-lat="40.71" data-lon="-74.01" data-place="New York, USA">New York</button>
+              <button type="button" data-lat="-33.87" data-lon="151.21" data-place="Sydney, Australia">Sydney</button>
+            </div>
+          </div>
+
+          <div class="atlas-panel reveal" data-delay="1">
+            <div class="place-row">
+              <div>
+                <span class="place-label">Now looking at</span>
+                <h3 id="weatherPlace">Hainan, China</h3>
+                <p id="weatherCoords">19.50° N · 110.00° E</p>
+              </div>
+              <span class="weather-time" id="weatherTime">--:--</span>
+            </div>
+
+            <div class="weather-now">
+              <span class="weather-icon" id="weatherIcon">◌</span>
+              <div class="weather-temp-wrap">
+                <strong id="weatherTemp">--°</strong>
+                <span id="weatherCondition">Reading the sky…</span>
+              </div>
+              <div class="weather-feels">
+                <span>Feels like</span>
+                <strong id="weatherFeels">--°</strong>
+              </div>
+            </div>
+
+            <div class="weather-grid">
+              <div><span>Humidity</span><strong id="weatherHumidity">--%</strong></div>
+              <div><span>Wind</span><strong id="weatherWind">-- km/h</strong></div>
+              <div><span>Rain</span><strong id="weatherRain">-- mm</strong></div>
+              <div><span>Local time</span><strong id="weatherZone">—</strong></div>
+            </div>
+
+            <div class="forecast" id="forecast" aria-live="polite"></div>
+
+            <div class="weather-status" id="weatherStatus" aria-live="polite">Move the globe, or use a quick location.</div>
+          </div>
+        </div>
+
+        <div class="atlas-map-wide reveal">
+          <div class="map-head">
+            <span>Global map</span>
+            <span>Click anywhere to read that place</span>
+          </div>
+          <div class="map-wrap">
+            <div id="worldMap" class="world-map"></div>
+            <div class="map-credit">Earth imagery · NASA Blue Marble</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section daily-tools" id="tools">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow"><span class="dot"></span>04 — Daily tools</p>
+            <h2>Small things for <em>the day.</em></h2>
+          </div>
+          <p class="section-note">Dress for the sky.<br>Convert the numbers.</p>
+        </div>
+
+        <div class="tools-grid">
+          <article class="daily-card outfit-card reveal">
+            <div class="daily-head">
+              <div>
+                <p class="daily-kicker">Weather utility 01</p>
+                <h3>Dress for the sky</h3>
+              </div>
+              <span class="daily-temp" id="outfitTemp">--°</span>
+            </div>
+
+            <p class="daily-lead" id="outfitPlace">Waiting for the local sky…</p>
+
+            <div class="outfit-status">
+              <span class="outfit-icon" id="outfitIcon">◌</span>
+              <div>
+                <strong id="outfitCondition">Reading conditions…</strong>
+                <span id="outfitNote">What to wear will appear here.</span>
+              </div>
+            </div>
+
+            <div class="outfit-grid">
+              <div>
+                <span>Layer</span>
+                <strong id="outfitLayer">—</strong>
+                <small id="outfitLayerNote">Waiting for temperature.</small>
+              </div>
+              <div>
+                <span>Carry</span>
+                <strong id="outfitCarry">—</strong>
+                <small id="outfitCarryNote">Waiting for rain and wind.</small>
+              </div>
+              <div>
+                <span>Extra</span>
+                <strong id="outfitExtra">—</strong>
+                <small id="outfitExtraNote">Waiting for humidity.</small>
+              </div>
+            </div>
+
+            <div class="outfit-meter" aria-hidden="true">
+              <span>Cold</span>
+              <i><b id="outfitMarker"></b></i>
+              <span>Warm</span>
+            </div>
+          </article>
+
+          <article class="daily-card converter-card reveal" data-delay="1">
+            <div class="daily-head">
+              <div>
+                <p class="daily-kicker">Utility 02</p>
+                <h3>Quick convert</h3>
+              </div>
+              <span class="daily-temp">↔</span>
+            </div>
+
+            <p class="daily-lead">Temperature, wind and rain — no app required.</p>
+
+            <div class="conv-tabs" role="group" aria-label="Conversion type">
+              <button type="button" class="active" data-conv="temp">°C → °F</button>
+              <button type="button" data-conv="wind">km/h → mph</button>
+              <button type="button" data-conv="rain">mm → in</button>
+            </div>
+
+            <label class="conv-label" for="convInput">Value</label>
+            <input class="conv-input" id="convInput" type="number" inputmode="decimal" step="any" value="24">
+
+            <div class="conv-result" aria-live="polite">
+              <span id="convFrom">°C</span>
+              <span class="conv-arrow">→</span>
+              <strong id="convResult">75.2 °F</strong>
+            </div>
+
+            <p class="conv-hint" id="convHint">24°C is 75.2°F.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section play" id="play">
+      <div class="shell play-grid">
+        <div class="play-copy reveal">
+          <p class="eyebrow"><span class="dot"></span>05 — Play</p>
+          <h2>Signal <em>Grid.</em></h2>
+          <p class="lead">A small game for a short attention span.</p>
+          <p>
+            One cell lights up. Click it before it goes dark. Every hit adds to your streak and makes
+            the next signal a little quicker. Miss one and the grid takes two seconds back.
+          </p>
+
+          <ul class="rules">
+            <li><span>01</span>Click the lit cell</li>
+            <li><span>02</span>Build a streak</li>
+            <li><span>03</span>You have 30 seconds</li>
+          </ul>
+
+          <div class="play-signature">
+            <span class="sig-line"></span>
+            <span>Best: <strong id="bestScore">0</strong></span>
+          </div>
+        </div>
+
+        <div class="game-shell reveal" data-delay="1">
+          <div class="game-top">
+            <div class="game-stats">
+              <div><span>Score</span><strong id="score">0</strong></div>
+              <div><span>Streak</span><strong id="streak">0</strong></div>
+              <div><span>Time</span><strong id="timer">30.0</strong></div>
+            </div>
+            <button class="game-start" id="gameStart">Start</button>
+          </div>
+
+          <div class="signal-board" id="signalBoard" role="grid" aria-label="Signal Grid game board"></div>
+
+          <div class="signal-overlay" id="signalOverlay">
+            <span class="overlay-kicker">Signal Grid</span>
+            <strong>Find the light.</strong>
+            <p>Click the lit cell before it disappears.<br>30 seconds. One streak.</p>
+            <button id="overlayStart">Start game</button>
+          </div>
+
+          <div class="game-foot">
+            <span id="signalStatus" aria-live="polite">Press start to tune in.</span>
+            <span class="game-mono">X20250013 / YG</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="dot"></span>06 — Contact</p>
+          <h2>Say something<br><em>interesting.</em></h2>
+        </div>
+
+        <div class="contact-card reveal" data-delay="1">
+          <p class="contact-lead">Projects, collaborations, or a good playlist — my inbox is open.</p>
+
+          <a class="email" href="mailto:X20250013@stu.hibiuh.edu.cn">X20250013@stu.hibiuh.edu.cn</a>
+          <button class="copy" id="copyEmail" data-email="X20250013@stu.hibiuh.edu.cn">Copy email</button>
+
+          <div class="contact-details">
+            <div><span>School</span><strong>Hainan Bielefeld University of Applied Sciences (BIUH)</strong></div>
+            <div><span>Location</span><strong>Hainan, China</strong></div>
+            <div><span>Status</span><strong>Open to collaborate</strong></div>
+          </div>
+
+          <div class="contact-foot">
+            <span>严冠男 · Yan Guannan</span>
+            <a href="#home">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>© <span id="year">2026</span> Yan Guannan — built for changing skies.</span>
+      <span>BIUH · Hainan · <a href="#contact">X20250013</a></span>
+    </div>
+  </footer>
+
+  <script src="vendor/leaflet.js" defer></script>
+  <script src="js/topography.js" defer></script>
+  <script src="js/main.js?v=4" defer></script>
+  <script src="js/atlas.js?v=7" defer></script>
+  <script src="js/daily-tools.js" defer></script>
+  <script src="js/signal-grid.js" defer></script>
+</body>
+</html>
